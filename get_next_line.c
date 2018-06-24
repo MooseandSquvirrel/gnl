@@ -35,7 +35,7 @@ int     ft_nl(char **str, char **line, int fd)
 	return (0);
 }
 
-int     get_next_line(char **line, int fd)
+int     get_next_line(const int fd, char **line)
 {
     static char *str[4096];
     char buf[BUFF_SIZE + 1];
