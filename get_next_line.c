@@ -12,48 +12,48 @@
 
 #include "get_next_line.h"
 
-int     ft_nl(char **str, char **line, int fd)
+static int		ft_nl(char **str, char **line, int fd)
 {
-    char *temp;
-    unsigned int before_nl;
+	char			*temp;
+	unsigned int	bfore_nl;
 
-    before_nl = ft_count2delimit_int(str[fd], '\n');
-    if (ft_strchr(str[fd], '\n'))
-    {
-        *line = ft_strsub(str[fd], 0, (size_t)before_nl);
-        temp = ft_strsub(str[fd], before_nl + 1, ft_strlen(str[fd]) - before_nl);
-        free(str[fd]);
-        str[fd] = temp;
-        return (1);
-    }
-    else if (ft_strlen(str[fd]) > 0)
-    {
-        *line = ft_strdup(str[fd]);
-        ft_strdel(&str[fd]);
-        return (1);
-    }
+	bfore_nl = ft_count2delimit_int(str[fd], '\n');
+	if (ft_strchr(str[fd], '\n'))
+	{
+		*line = ft_strsub(str[fd], 0, (size_t)bfore_nl);
+		temp = ft_strsub(str[fd], bfore_nl + 1, ft_strlen(str[fd]) - bfore_nl);
+		free(str[fd]);
+		str[fd] = temp;
+		return (1);
+	}
+	else if (ft_strlen(str[fd]) > 0)
+	{
+		*line = ft_strdup(str[fd]);
+		ft_strdel(&str[fd]);
+		return (1);
+	}
 	return (0);
 }
 
-int     get_next_line(const int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
-    static char *str[4096];
-    char buf[BUFF_SIZE + 1];
-    char *temp;
-    int ret;
+	static char		*str[4096];
+	char			buf[BUFF_SIZE + 1];
+	char			*temp;
+	int				ret;
 
-    if (!line || fd < 0)
-        return (-1);
-    if (str[fd] == NULL)
-        str[fd] = ft_strnew(1);
-    while ((ret = read(fd, buf, BUFF_SIZE)))
-    {
-        buf[ret] = '\0';
-        temp = ft_strjoin(str[fd], buf);
-        free(str[fd]);
-        str[fd] = temp;
-        if ((ft_strchr(str[fd], '\n')))
-            break ;
-    }
-    return(ft_nl(str, line, fd));
+	if (!line || read(fd, buf, 0) < 0 || fd < 0)
+		return (-1);
+	if (str[fd] == NULL)
+		str[fd] = ft_strnew(1);
+	while ((ret = read(fd, buf, BUFF_SIZE)))
+	{
+		buf[ret] = '\0';
+		temp = ft_strjoin(str[fd], buf);
+		free(str[fd]);
+		str[fd] = temp;
+		if ((ft_strchr(str[fd], '\n')))
+			break ;
+	}
+	return (ft_nl(str, line, fd));
 }
