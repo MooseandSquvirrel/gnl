@@ -6,7 +6,7 @@
 /*   By: agardner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/14 17:10:52 by agardner          #+#    #+#             */
-/*   Updated: 2018/06/23 20:53:07 by agardner         ###   ########.fr       */
+/*   Updated: 2018/07/02 02:56:27 by agardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 
 int		get_next_line(const int fd, char **line);
 
