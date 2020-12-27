@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/MooseandSquvirrel/gnl.git">
-    <img src="library.png" alt="Logo" width="80" height="80">
+    <img src="next.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Get Next Line Function</h3>
@@ -76,7 +76,7 @@
 
 <p align="center">
   <a href="https://github.com/MooseandSquvirrel/gnl.git">
-    <img src="strcpy.png" alt="Logo" width="800" height="480">
+    <img src="gnlPic.png" alt="Logo" width="1000" height="300">
   </a>
 </p>
 
